@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 public class User implements Serializable{
     private static final long serialVersionUID = -8736616045315083846L;
+
+    // 主键由数据库自动生成（主要是自动增长型）
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
