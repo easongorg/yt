@@ -1,8 +1,8 @@
 package com.study.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
+import java.io.Serializable;
 public class User implements Serializable{
     private static final long serialVersionUID = -8736616045315083846L;
 

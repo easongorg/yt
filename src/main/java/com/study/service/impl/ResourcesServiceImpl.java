@@ -53,7 +53,9 @@ public class ResourcesServiceImpl extends BaseService<Resources> implements Reso
 
     @Override
     public List<Resources> queryByType(Resources resources,PageBean pageBean) {
-      PageHelper.startPage(pageBean.getPage(), pageBean.getRows());
+      if(pageBean!=null){
+        PageHelper.startPage(pageBean.getPage(), pageBean.getRows());
+      }
       return resourcesMapper.queryByType(resources);
     }
 }

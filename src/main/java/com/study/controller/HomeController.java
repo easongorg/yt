@@ -24,12 +24,21 @@ import java.util.Map;
 public class HomeController {
     @Resource
     private ResourcesService resourcesService;
-
+    /**
+     * 登录页面
+     * @return
+     */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
-
+    /**
+     * 登录跳转
+     * @param request
+     * @param user
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, User user, Model model) {
         if (StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())) {
@@ -66,7 +75,11 @@ public class HomeController {
         subject.logout();
         return "login";
     }
-
+    /**
+     * 首页
+     * @param request
+     * @return
+     */
     @RequestMapping("/index")
     public String index(HttpServletRequest request){
       Map<String,Object> map = new HashMap<>();
@@ -78,6 +91,15 @@ public class HomeController {
       return "index";
     }
     
+    @RequestMapping(value="/resources/add",method = RequestMethod.GET)
+    public String resources_add(HttpServletRequest request){
+        Resources resources=new Resources();
+        resources.setType(1);
+        List<Resources> resourcesList = resourcesService.queryByType(resources, null);
+        request.setAttribute("resources", resourcesList);
+        return "resources/resources_add";
+    }
+         
     @RequestMapping(value={"/usersPage",""})
     public String usersPage(HttpServletRequest request){
         return "user/users";

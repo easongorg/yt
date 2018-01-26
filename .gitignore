@@ -21,6 +21,7 @@ target/
 *.class
 /bin/
 *.sql
+pom.xml
 
 # ............
 .metadata

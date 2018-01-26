@@ -2,7 +2,6 @@ package com.study.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.study.mapper.ResourcesMapper;
 import com.study.mapper.UserRoleMapper;
 import com.study.model.User;
 import com.study.model.UserRole;

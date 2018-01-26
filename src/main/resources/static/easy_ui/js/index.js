@@ -108,15 +108,3 @@ $(function () {
 		$(this).addClass("datagrid-row-selected");
 	});
 });
-
-function onunload(){
-	$.ajax( {
-		url : 'loginOut.do',
-		dataType:'json',
-		async: false,//同步
-		success : function(result) {
-		},
-		error : function(result) {
-		}
-	});   
-};

@@ -14,7 +14,7 @@
 <script type="text/javascript" th:src="@{/easy_ui/js/common.js}"></script>
 <link rel="stylesheet" type="text/css" th:href="@{/easy_ui/css/index.css}">
 <script type="text/javascript" th:src="@{/easy_ui/js/index.js}"></script>
-<title>用户管理</title>
+<title>首页</title>
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'north',split:true" border="false"
@@ -40,7 +40,7 @@
 		          <span th:if="${res.id==reschil.parentid}">
 		             <ul class="menu-ul">
 					<li class="menu-ul-li"><a class="menu-ul-li-a"
-						th:href="|javascript:addTab('${reschil.name}','${reschil.resurl}')|"><span th:text="${reschil.name}"></span></a></li>
+						th:href="|javascript:addTab('${reschil.name}','${reschil.resurl}?menuName=${reschil.name}')|"><span th:text="${reschil.name}"></span></a></li>
 					</ul>
 		          </span>
 		      </span>
