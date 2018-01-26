@@ -42,6 +42,16 @@ public class Resources implements Serializable{
     /**
      * @return id
      */
+    private String parentName;
+    
+    public String getParentName() {
+      return parentName;
+    }
+
+    public void setParentName(String parentName) {
+      this.parentName = parentName;
+    }
+
     public Integer getId() {
         return id;
     }

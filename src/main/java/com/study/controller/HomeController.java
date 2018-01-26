@@ -40,8 +40,8 @@ public class HomeController {
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         try {
             subject.login(token);
-            return "redirect:usersPage";
-        } catch (LockedAccountException lae) {
+            return "redirect:index";
+        }catch (LockedAccountException lae) {
             token.clear();
             request.setAttribute("msg", "用户已经被锁定不能登录，请与管理员联系！");
             return "login";
@@ -67,14 +67,19 @@ public class HomeController {
         return "login";
     }
 
-    @RequestMapping(value = {"/usersPage", ""})
-    public String usersPage(HttpServletRequest request) {
-        Map<String, Object> map = new HashMap<>();
-        Integer userid = (Integer) SecurityUtils.getSubject().getSession().getAttribute("userSessionId");
-        map.put("type", 1);
-        map.put("userid", userid);
-        List<Resources> resourcesList = resourcesService.loadUserResources(map);
-        request.setAttribute("resources", resourcesList);
+    @RequestMapping("/index")
+    public String index(HttpServletRequest request){
+      Map<String,Object> map = new HashMap<>();
+      Integer userid = (Integer) SecurityUtils.getSubject().getSession().getAttribute("userSessionId");
+      map.put("type",1);
+      map.put("userid",userid);
+      List<Resources> resourcesList = resourcesService.loadUserResources(map);
+      request.setAttribute("resources", resourcesList);
+      return "index";
+    }
+    
+    @RequestMapping(value={"/usersPage",""})
+    public String usersPage(HttpServletRequest request){
         return "user/users";
     }
 

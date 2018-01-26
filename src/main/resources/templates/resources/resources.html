@@ -11,10 +11,15 @@
             <tr>
             	<th data-options="field:'ck',checkbox:true"></th>
             	<th data-options="field:'id',width:100,align:'center',sortable:'true'">id</th>
-            	<th data-options="field:'name',width:350,align:'center',sortable:'true'">菜单名称</th>
-            	<th data-options="field:'parentid',width:150,align:'center',sortable:'true'">父资源</th>
-            	<th data-options="field:'resurl',width:350,align:'center',sortable:'true'">资源链接</th>
-            	<th data-options="field:'type',width:200,align:'center',sortable:'true'">资源类型</th>
+            	<th data-options="field:'name',width:200,align:'center',sortable:'true'">菜单名称</th>
+            	<th data-options="field:'resurl',width:200,align:'center',sortable:'true'">资源链接</th>
+            	<th data-options="field:'parentName',width:100,align:'center',sortable:'true'">父菜单名称</th>
+            	<th data-options="field:'type',width:200,align:'center',sortable:'true',
+            	     formatter:function(value,row){
+            							if (value == 1) return '菜单';
+	                                    return '未定义';
+	                		  }
+            	">资源类型</th>
                 <th data-options="field:'sort',width:200,align:'center',sortable:'true'">排序</th>
             </tr>
         </thead>
@@ -22,8 +27,8 @@
     <div id="toolbar1" class="easyui-layout" style="height:65px;margin:3px;">
         <div data-options="region:'center',border:false">
             <a href="javascript:add();" shiro:hasPermission="/resources/add" class="easyui-linkbutton" iconCls="icon-add-new" plain="true">新增</a>
-            <a href="javascript:modify();" class="easyui-linkbutton" iconCls="icon-edit-new" plain="true">修改</a>
-            <a href="javascript:remove();" class="easyui-linkbutton" iconCls="icon-remove-new" plain="true">删除</a>
+            <a href="javascript:modify();" shiro:hasPermission="/resources/edit" class="easyui-linkbutton" iconCls="icon-edit-new" plain="true">修改</a>
+            <a href="javascript:remove();" shiro:hasPermission="/resources/delete" class="easyui-linkbutton" iconCls="icon-remove-new" plain="true">删除</a>
         </div>
         <div data-options="region:'north',border:true" style="height:40px;">
             <form id="fm" method="post" novalidate>
