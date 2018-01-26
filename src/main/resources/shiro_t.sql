@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2018-01-25 13:33:40
+Date: 2018-01-26 18:00:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,23 +27,24 @@ CREATE TABLE `resources` (
   `parentId` int(11) DEFAULT NULL COMMENT '父资源',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO `resources` VALUES ('1', '系统设置', '', '1', '0', '1');
-INSERT INTO `resources` VALUES ('2', '用户管理', '/usersPage', '1', '1', '2');
-INSERT INTO `resources` VALUES ('3', '角色管理', '/rolesPage', '1', '1', '3');
-INSERT INTO `resources` VALUES ('4', '资源管理', '/resourcesPage', '1', '1', '4');
+INSERT INTO `resources` VALUES ('1', '系统设置', '', '1', '0', '10');
+INSERT INTO `resources` VALUES ('2', '用户管理', '/usersPage', '1', '1', '20');
+INSERT INTO `resources` VALUES ('3', '角色管理', '/rolesPage', '1', '1', '30');
+INSERT INTO `resources` VALUES ('4', '资源管理', '/resourcesPage', '1', '1', '40');
 INSERT INTO `resources` VALUES ('5', '添加用户', '/users/add', '2', '2', '5');
 INSERT INTO `resources` VALUES ('6', '删除用户', '/users/delete', '2', '2', '6');
 INSERT INTO `resources` VALUES ('7', '添加角色', '/roles/add', '2', '3', '7');
 INSERT INTO `resources` VALUES ('8', '删除角色', '/roles/delete', '2', '3', '8');
-INSERT INTO `resources` VALUES ('9', '添加资源', '/resources/add', '2', '4', '9');
-INSERT INTO `resources` VALUES ('10', '删除资源', '/resources/delete', '2', '4', '10');
+INSERT INTO `resources` VALUES ('9', '添加资源', '/resources/add', '2', '4', '1');
+INSERT INTO `resources` VALUES ('10', '删除资源', '/resources/delete', '2', '4', '2');
 INSERT INTO `resources` VALUES ('11', '分配角色', '/users/saveUserRoles', '2', '2', '11');
 INSERT INTO `resources` VALUES ('13', '分配权限', '/roles/saveRoleResources', '2', '3', '12');
+INSERT INTO `resources` VALUES ('14', '修改资源', '/resources/edit', '2', '4', '3');
 
 -- ----------------------------
 -- Table structure for role
@@ -88,6 +89,7 @@ INSERT INTO `role_resources` VALUES ('1', '9');
 INSERT INTO `role_resources` VALUES ('1', '10');
 INSERT INTO `role_resources` VALUES ('1', '11');
 INSERT INTO `role_resources` VALUES ('1', '13');
+INSERT INTO `role_resources` VALUES ('1', '14');
 INSERT INTO `role_resources` VALUES ('2', '2');
 INSERT INTO `role_resources` VALUES ('2', '3');
 INSERT INTO `role_resources` VALUES ('2', '4');
